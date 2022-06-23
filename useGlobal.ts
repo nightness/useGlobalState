@@ -30,6 +30,10 @@ export const useGlobal = (name: string, initialValue?: any) => {
     globalObjects[name as any] ?? initialValue
   );
 
+  if (!globalObjects[name as any]) {
+    set(name, initialValue ?? undefined);
+  }
+
   useEffect(() => {
     subscribe(name, setSingletonObject);
   }, []);
