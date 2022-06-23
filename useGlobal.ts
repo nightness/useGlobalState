@@ -27,12 +27,8 @@ const subscribe = (name: string, listener: (value: any) => void) => {
 // The second argument is ignored after the singleton is set, to change the singleton use it's setter
 export const useGlobal = (name: string, initialValue?: any) => {
   const [singletonObject, setSingletonObject] = useState(
-    globalObjects[name as any] ?? initialValue
+    globalObjects[name as any] ?? (globalObjects[name as any] = initialValue)
   );
-
-  // if (!globalObjects[name as any]) {
-  //   set(name, initialValue ?? undefined);
-  // }
 
   useEffect(() => {
     subscribe(name, setSingletonObject);
