@@ -1,7 +1,7 @@
 {
   "expo": {
-    "name": "useGlobal",
-    "slug": "useGlobal",
+    "name": "useGlobalState",
+    "slug": "useGlobalState",
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/icon.png",

@@ -1,9 +1,9 @@
 import React from 'react'
 import { Text, View } from 'react-native'
-import { useGlobal } from './useGlobal';
+import { useGlobalState } from './useGlobalState';
 
 const AppChild = () => {
-    const [count] = useGlobal('count');
+    const [count] = useGlobalState('count');
     return (
         <View style={{}}>
             <Text>Current value: {count}</Text>

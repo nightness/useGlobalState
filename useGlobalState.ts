@@ -1,4 +1,4 @@
-// useGlobal, global state management in a hook!!!
+// useGlobalState, global state management in a hook!!!
 // Written by: Nightness
 import { useEffect, useState } from "react";
 
@@ -25,7 +25,7 @@ const subscribe = (name: string, listener: (value: any) => void) => {
 };
 
 // The second argument is ignored after the singleton is set, to change the singleton use it's setter
-export const useGlobal = (name: string, initialValue?: any) => {
+export const useGlobalState = (name: string, initialValue?: any) => {
   const [singletonObject, setSingletonObject] = useState(
     globalObjects[name as any] ?? (globalObjects[name as any] = initialValue)
   );

@@ -1,11 +1,11 @@
 import { StatusBar } from 'expo-status-bar';
 import { Button, StyleSheet, Text, View } from 'react-native';
 import AppChild from './AppChild';
-import { useGlobal } from './useGlobal';
+import { useGlobalState } from './useGlobalState';
 
 export default function App() {
 
-  const [count, setCount] = useGlobal('count', 0);
+  const [count, setCount] = useGlobalState('count', 0);
 
   return (
     <View style={styles.container}>
