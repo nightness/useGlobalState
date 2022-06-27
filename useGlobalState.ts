@@ -8,7 +8,7 @@ interface Listener {
 }
 
 const globalObjects: any = {};
-const listeners = {} as any; ;
+const listeners = {} as any;
 
 const set = (name: string, value: any) => {
   globalObjects[name as any] = value;
