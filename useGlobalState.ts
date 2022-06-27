@@ -2,23 +2,23 @@
 // Written by: Nightness
 import { useEffect, useState } from "react";
 
-interface Listeners {
+interface Listener {
     key: string;
     callback: (value: any) => void;
 }
 
 const globalObjects: any = {};
-const listeners: Listeners[] = [];
+const listeners = {} as any; ;
 
 const set = (name: string, value: any) => {
   globalObjects[name as any] = value;
-  listeners?.filter((l) => l.key === name).forEach((listener) => {
+  listeners[name].forEach((listener: Listener) => {
     listener.callback(value);
-  });
+  })
 };
 
 const subscribe = (name: string, listener: (value: any) => void) => {
-  listeners.push({
+  listeners[name].push({
     key: name,
     callback: listener
   });
@@ -31,6 +31,8 @@ export const useGlobalState = (name: string, initialValue?: any) => {
   );
 
   useEffect(() => {
+    if (!listeners[name])
+      listeners[name] = [] as Listener[];
     subscribe(name, setSingletonObject);
   }, []);
 
